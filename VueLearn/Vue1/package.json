@@ -1,0 +1,21 @@
+{
+  "name": "vue_demo",
+  "version": "1.0.0",
+  "description": "vue_demo",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fff",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "vue_demo"
+  },
+  "keywords": [
+    "vue1"
+  ]
+}
