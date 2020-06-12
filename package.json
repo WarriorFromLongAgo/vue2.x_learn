@@ -1,0 +1,19 @@
+{
+  "name": "vue2.x_learn",
+  "version": "1.0.0",
+  "description": "vue2.x_learn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WarriorFromLongAgo/vue2.x_learn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WarriorFromLongAgo/vue2.x_learn/issues"
+  },
+  "homepage": "https://github.com/WarriorFromLongAgo/vue2.x_learn#readme"
+}
