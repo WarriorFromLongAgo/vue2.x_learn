@@ -4,26 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>起步</title>
+    <title>条件与循环</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 
 <body>
-    <h1>helloh1h1h1h1h1h1h1hh1</h1>
+    <h1>v-if&v-else&v-show</h1>
     <hr>
-    <div id="aaa">
-        <h1>{{message1}}</h1>
-        <h1>{{message1}}</h1>
-        <br />
-        <h2>{{name}}</h2>
+    <div id="app-3">
+        <p v-show="isLogin">已经登录了</p>
     </div>
 
     <script type="text/javascript">
-        const app = new Vue({
-            el: '#aaa',
+        const app3 = new Vue({
+            el: '#app-3',
             data: {
-                message1: 'ajsdh',
-                name: 'feijm'
+                isLogin: false
             }
         })
     </script>
