@@ -9,16 +9,26 @@
 </head>
 
 <body>
-    <h1>v-text</h1>
+    <h1>v-text-html</h1>
     <hr>
     <div id="aaa">
-        <h1>{{message1}}</h1>
+        <h1>{{message1}}</h1> = <h1 v-text='message1'></h1>
         <br />
         <h2>{{name}}</h2>
+        <br />
+        <h2>{{dodo}}</h2> => <h2 v-html='dodo'></h2>
     </div>
 
     <script type="text/javascript">
-        
+        const app = new Vue({
+            el: '#aaa',
+            data: {
+                message1: 'ajsdh',
+                name: 'feijm',
+                dodo: '<html> - dodo -</html>'
+            }
+        })
     </script>
 </body>
+
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>处理用户输入</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-on</h1>
+    <hr>
+    <div id="app-5">
+        本场比赛的得分：<span>{{message}}</span>
+        <br />
+        <p>
+            <button v-on:click='jiafen'>加分</button>
+            <button v-on:click='jianfen'>减分</button>
+            <button @click='jianfen2'>减2分</button>
+            <br>
+            <input type="text" v-on:keyup.enter='onEnter' v-model='message2'>
+            <input type="text" v-on:keyup.13='onEnter' v-model='message2'>
+        </p>
+    </div>
+
+    <script type="text/javascript">
+        var app5 = new Vue({
+            el: '#app-5',
+            data: {
+                message: 0,
+                message2: 1
+            },
+            methods: {
+                jiafen: function () {
+                    this.message++;
+                },
+                jianfen: function () {
+                    this.message--;
+                },
+                jianfen2: function () {
+                    this.message--;
+                    this.message--;
+                },
+                onEnter: function () {
+                    this.message = this.message + parseInt(this.message2);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

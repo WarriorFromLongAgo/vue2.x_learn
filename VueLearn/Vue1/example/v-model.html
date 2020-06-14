@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>起步</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-model</h1>
+    <hr>
+    <div id="aaa">
+        <!-- 双向数据绑定 -->
+        <h1>原始的数据：{{message}}</h1>
+        <p>
+            <!-- <h1 v-model='message'></h1> -->
+        </p>
+        <p>文本框：<input type="text" v-model='message'></p>
+        <p>v-model.lazy：<input type="text" v-model.lazy='message'></p>
+        <p>v-model.number：<input type="text" v-model.number='message'></p>
+        <!-- 删除前后的空格 -->
+        <p>v-model.trim：<input type="text" v-model.trim='message'></p>
+        <hr>
+        <p>文本域</p>
+        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+        <p>多选框绑定一个值</p>
+        <input type="checkbox" id="isTrue" v-model="isTrue">
+        <label for="isTrue">{{isTrue}}</label>
+        <hr>
+        <p>
+            <input type="checkbox" id="aaaaa" value="aaaaa" v-model="web_name">
+            <label for="isTrue">aaaaa</label>
+            <input type="checkbox" id="bbbbb" value="bbbbb" v-model="web_name">
+            <label for="isTrue">bbbbb</label>
+            <input type="checkbox" id="ccccc" value="ccccc" v-model="web_name">
+            <label for="isTrue">ccccc</label>
+        </p>
+        <p>{{web_name}}</p>
+        <hr>
+        <p>
+            <input type="radio" id="one" value="男" v-model="sex">
+            <label for="one">男</label>
+            <input type="radio" id="two" value="女" v-model="sex">
+            <label for="two">女</label>
+        </p>
+        <p>{{sex}}</p>
+    </div>
+
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#aaa',
+            data: {
+                message: 'ajsdh',
+                isTrue: true,
+                web_name: [],
+                sex: '男'
+            }
+        })
+    </script>
+</body>
+
+</html>
