@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>起步</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="aaa">
+        <h1>{{message1}}</h1>
+        <h2>{{name}}</h2>
+        <hr>
+        <p><div v-pre>原样输出：{{message1}}</div></p>
+        <p><div v-cloak>dom渲染完成了，才显示：{{message1}}</div></p>
+        <p><div v-cloak>dom渲染完成了，才显示：{{message1}}</div></p>
+        <br>
+        <!-- ajsdh -->
+        <div v-once>{{message1}}</div>
+        <!-- 自己diy输入 -->
+        <p><input type="text" v-model="message1"></p>
+        <!-- 自己diy输入 -->
+        <div>{{message1}}</div>
+    </div>
+
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#aaa',
+            data: {
+                message1: 'ajsdh',
+                name: 'feijm'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -9,22 +9,78 @@
 </head>
 
 <body>
-    <h1>helloh1h1h1h1h1h1h1hh1</h1>
+    <h1>v-bind</h1>
     <hr>
     <div id="app2">
         <span v-bind:title="message1">
             鼠标悬停几秒钟查看此处动态绑定的提示信息！
         </span>
         <br />
+        <hr>
+        <img src="https://cn.vuejs.org/images/components.png" width="600px" alt="">
+        <br>
+        <hr>
+        <img v-bind:src='imgSrc' width="600px" alt="">
+        <br>
+        <hr>
+        <a v-bind:href="webUrl  " target="_blank">糕糕糕</a>
+        <br>
+        <hr>
+        <div v-bind:class="className">1，div 绑定classA</div>
+        <div v-bind:class="{classA:isOk}">2，div 绑定class中的判断</div>
+        <div v-bind:class="[classA, {classB:isOk}]">3，div 绑定class数组中的判断</div>
+        <div v-bind:class="[classA, classB]">3，div 绑定class数组中的判断</div>
+        <div v-bind:class="isOk ? classA : classB">4，三元运算符</div>
+        <br>
+        <hr>
+        <div>
+            <input type="checkbox" id="isOk" v-model="isOk">
+            <label for="isOk">isOk = {{isOk}}</label>
+        </div>
+        <br>
+        <hr>
+        <div style="color:yellow;">5，绑定style</div>
+        <div v-bind:style="{color:red, fontSize:font}">5，绑定style</div>
+        <div v-bind:style="styleObject">5，绑定style对象</div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
+    <style>
+        .classA {
+            color: red;
+        }
+
+        .classB {
+            color: yellow;
+            font-size: 150%;
+        }
+    </style>
 
     <script type="text/javascript">
         const app = new Vue({
             el: '#app2',
             data: {
-                message1: '页面加载于 ' + new Date().toLocaleString()
+                message1: '页面加载于 ' + new Date().toLocaleString(),
+                imgSrc: 'https://cn.vuejs.org/images/components.png',
+                webUrl: 'http://122.51.167.199:8090/',
+                className: 'classA',
+                isOk: false,
+                classA: 'classA',
+                classB: 'classB',
+                red: 'red',
+                font: '150%',
+                styleObject: {
+                    color: 'green',
+                    fontSize: '150%'
+                }
             }
         })
     </script>
 </body>
+
 </html>

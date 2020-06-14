@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue extend</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>111</h1>
+    <hr>
+    <author></author>
+    <hr>
+    <div id="author">11</div>
+    <script type="text/javascript">
+        let authorExtend = Vue.extend({
+            template:"<p><a v-bind:href='authorURL'>{{authorName}}</a></p>",
+            data:function(){
+                return {
+                    authorName:'fff',
+                    authorURL:'http://122.51.167.199:8090/'
+                }
+            }
+        });
+        new authorExtend().$mount("author")
+        new authorExtend().$mount("#author")
+    </script>
+</body>
+
+</html>

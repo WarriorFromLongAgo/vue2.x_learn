@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="aaa">
+        <div v-fff="color">{{num}}</div>
+        <p><button @click="increment">increment</button></p>
+    </div>
+
+    <script type="text/javascript">
+        Vue.directive("fff", function (el, binding) {
+            // <div>10</div>
+            console.log(el);
+            // 好多东西
+            console.log(binding);
+            // fff
+            console.log(binding.name);
+            // red
+            console.log(binding.value);
+            // color
+            console.log(binding.expression);
+            el.style = "color:" + binding.value;
+        });
+        const app = new Vue({
+            el: '#aaa',
+            data: {
+                num: 0,
+                color: 'red'
+            },
+            methods: {
+                increment: function () {
+                    this.num++;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
