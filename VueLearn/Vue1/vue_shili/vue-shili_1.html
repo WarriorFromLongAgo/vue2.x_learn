@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>vue实例</h1>
+    <hr>
+    <div id="aaa" value="vm.a == data.a">
+    </div>
+
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#aaa',
+            // 我们的数据对象
+            data: {
+                a: 1
+            }
+        });
+        // 该对象被加入到一个 Vue 实例中
+        let vm = new Vue({
+            data: data
+        });
+        // 获得这个实例上的 property
+        // 返回源数据中对应的字段
+        vm.a == data.a // => true
+    </script>
+</body>
+
+</html>

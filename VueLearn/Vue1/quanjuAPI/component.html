@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>起步</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>helloh1h1h1h1h1h1h1hh1</h1>
+    <hr>
+    <div id="aaa">
+        <ol>
+            <!-- 创建一个 todo-item 组件的实例 -->
+            <todo-item></todo-item>
+        </ol>
+    </div>
+    <!-- <div id = "bbb"></div> -->
+    <script type="text/javascript">
+        // 定义名为 todo-item 的新组件
+        let oneComponent = Vue.component('todo-item', {
+            template: '<li>这是个待办项</li>'
+        })
+        const app = new Vue({
+            el: '#aaa',
+            data: {
+                message1: 'ajsdh',
+                name: 'feijm'
+            }
+        });
+        // new oneComponent().$mount("#bbb")
+    </script>
+</body>
+
+</html>
