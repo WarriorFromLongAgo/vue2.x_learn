@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>起步</title>
+    <title>component2</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 
 <body>
-    <h1>helloh1h1h1h1h1h1h1hh1</h1>
+    <h1>component2</h1>
     <hr>
     <div id="app-7">
         <ol>
@@ -24,19 +24,12 @@
             </todo-item>
         </ol>
     </div>
-    <div id="app">
-        <app-nav></app-nav>
-        <app-view>
-            <app-sidebar></app-sidebar>
-            <app-content></app-content>
-        </app-view>
-    </div>
 
     <script type="text/javascript">
         // 定义名为 todo-item 的新组件
         let oneComponent = Vue.component('todo-item', {
             props: ['todo'],
-            template: '<li>{{ todo.text }}</li>'
+            template: '<li>{{ todo.id }} {{ todo.text }}</li>'
         });
 
         var app7 = new Vue({

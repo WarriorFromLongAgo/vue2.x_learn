@@ -12,26 +12,21 @@
     <h1>111</h1>
     <div id="aaa">
         <h1>{{count}}</h1>
-        <h1>{{count}}</h1>
         <!-- <br /> -->
         <!-- <h2>{{goods}}</h2> -->
         <ul>
             <li v-for="item in arr">{{item}}</li>
         </ul>
         <p><button onclick="increment()">increment</button></p>
-
     </div>
 
     <script type="text/javascript">
         function increment() {
             // 将 1 改成 2
-            // Vue.set(outData, 'count', 2);
             // 自增
-            // app.count++;
-            // outData++;
-
+            Vue.set(outData, 'count', (++app.count));
             // 修改数组，上面的必须一起修改count，否则修改不会被监控
-            // app.arr[1] = 'dddd';
+            app.arr[1] = 'dddd';
             // 下面的set，可以不用修改其他，就会被监控
             Vue.set(app.arr, 1, 'dddd')
         }
