@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造器外部写局部注册组件</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>构造器外部写局部注册组件</h1>
+    <hr>
+    <div id="app">
+        <jspang></jspang>
+    </div>
+    <script type="text/javascript">
+        var city = {
+            template: `<div>Sichuan of China</div>`
+        }
+        var jspang = {
+            template: `<div>
+                    <p> Panda from China!</p>
+                    <city></city>
+            </div>`,
+            components: {
+                "city": city
+            }
+        }
+        var app = new Vue({
+            el: '#app',
+            components: {
+                "jspang": jspang
+            }
+
+        })
+    </script>
+</body>
+
+</html>

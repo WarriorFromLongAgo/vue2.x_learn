@@ -12,7 +12,9 @@
     <h1>component3_局部注册组件</h1>
     <hr>
     <div id="app">
-        <panda here="China"></panda>
+        <!-- <panda here="China"></panda> -->
+        <!-- 如果要有 -  -->
+        <panda from-here="China"></panda>
     </div>
 
     <script type="text/javascript">
@@ -20,8 +22,11 @@
             el: '#app',
             components: {
                 "panda": {
-                    template: `<div style="color:red;">Panda from {{ here }}.</div>`,
-                    props: ['here']
+                    // template: `<div style="color:red;">Panda from {{ here }}.</div>`,
+                    template: `<div style="color:red;">Panda from {{ fromHere }}.</div>`,
+                    // props: ['here']
+                    // 如果要有 - 
+                    props:['fromHere']
                 }
             }
         })

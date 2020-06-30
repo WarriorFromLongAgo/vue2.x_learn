@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component_局部注册_传值</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>component_局部注册_传值</h1>
+    <hr>
+    <div id="app">
+        <panda v-bind:here="message"></panda>
+    </div>
+
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: 'SiChuan'
+            },
+            components: {
+                "panda": {
+                    template: `<div style="color:red;">Panda from {{ here }}.</div>`,
+                    props: ['here']
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
