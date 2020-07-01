@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind官网</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-bind官网</h1>
+    <hr>
+    <div id="app">
+        <div v-bind:style="[style, fontStyle]">数组语法</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                style: {
+                    color: 'red',
+                    backgroundColor: 'blue'
+                },
+                fontStyle: {
+                    fontSize: '18px'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        　　<div class="outeer" @click.self="outer">
+            　　　　<div class="middle" @click.self="middle">
+                　　　　　　<button @click.stop="inner">点击我(^_^)</button>
+                　　　　</div>
+            　　</div>
+        　　<p>{{ message }}</p>
+    </div>
+    <script type="text/javascript">
+        let app = new Vue({
+            el: '#app', data() {
+                return { message: '测试冒泡事件' }
+            },
+            methods: {
+                inner: function () {
+                    this.message = 'inner： 这是最里面的Button'
+                },
+                middle: function () {
+                    this.message = 'middle: 这是中间的Div'
+                },
+                outer: function () {
+                    this.message = 'outer: 这是外面的Div'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

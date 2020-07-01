@@ -8,22 +8,38 @@
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 
-<body>
-    <h1>v-if&v-else&v-show</h1>
-    <hr>
-    <div id="app-3">
-        <p v-if="isLogin">已经登录了</p>
-        <p v-else="isLogin">请登录</p>
-    </div>
 
-    <script type="text/javascript">
-        const app3 = new Vue({
-            el: '#app-3',
+<body>
+    <div id="app1">
+        <template>
+            <div v-if="loginType === 'username'">
+                <label>username</label>
+                <input type="text" placeholder="enter your username" name="abc" key="eee">
+                <!--vue是高效复用的，input还是2个input，当时输入缓存还在,为了区别开，用关键字key-->
+            </div>
+            <div v-else>
+                <label>passworld</label>
+                <input type="password" placeholder="enter your password" name="dd" key="yyy">
+                <!--key 在浏览器控制台不显示哦，但能完美解决问题-->
+            </div>
+        </template>
+        <button v-on:click="fun">点击切换</button>
+
+    </div>
+    <script>
+        var foo = new Vue({
+            el: '#app1',
             data: {
-                isLogin: true,
-                isPass: true
+                loginType: 'username',
+            },
+            methods: {
+                fun: function () {
+                    this.loginType == 'username' ? this.loginType = 'password' : this.loginType = 'username';
+                }
             }
-        })
+
+        });
     </script>
 </body>
+
 </html>

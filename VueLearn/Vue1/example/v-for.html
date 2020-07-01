@@ -10,89 +10,28 @@
 
 <body>
     <h1>helloh1h1h1h1h1h1h1hh1</h1>
-    <hr>
-    <div id="app-4">
-        <ol>
-            <li v-for="todo in todos">
-                {{ todo.text }}
-            </li>
-        </ol>
-    </div>
-    <div id="app-5">
-        <ol>
-            <li v-for="item in items">
-                {{ item }}
-            </li>
-            <br />
-            <li v-for="(student, index) in students">
-                {{index + 1}} {{ student.name }}-{{student.age}}
-            </li>
-            <br />
-            <li v-for="(student, index) in sortStudents">
-                {{index + 1}} {{ student.name }}-{{student.age}}
-            </li>
-            <br />
-            <li v-for="item in sortItems">
-                {{ item }}
-            </li>
-        </ol>
-    </div>
+    <ul id="v-for-object" class="demo">
+        <li v-for="value in object">
+            {{ value }}
+        </li>
+        <hr>
+        <div v-for="(value, name) in object">
+            {{ name }}: {{ value }}
+        </div>
+    </ul>
+    
 
     <script type="text/javascript">
         const app4 = new Vue({
-            el: '#app-4',
+            el: '#v-for-object',
             data: {
-                todos: [
-                    { text: '学习 JavaScript' },
-                    { text: '学习 Vue' },
-                    { text: '整个牛项目' }
-                    // app4.todos.push({ text: '新项目' })
-                ]
-            }
-        });
-        const app5 = new Vue({
-            el: '#app-5',
-            data: {
-                items: [53, 23, 7, 76, 14, 64, 28],
-                students: [
-                    { name: 'aaaa', age: 12 },
-                    { name: 'bbbb', age: 1 },
-                    { name: 'cccc', age: 23 },
-                    { name: 'dddd', age: 11 }
-                ]
-            },
-            computed: {
-                // 这里会报错，因为不能直接怼data里面的东西操作直接返回，
-                // items: function () {
-                //     return [1, 2, 3, 4, 5, 6]
-                //     return this.items.sort();
-                // },
-                sortItems: function () {
-                    // 这里会报错，因为不能直接怼data里面的东西操作直接返回，
-                    // return [1, 2, 3, 4, 5, 6]
-                    // 这里返回的顺序是乱序的，返回的是首字母的排序
-                    // return this.items.sort();
-                    // 这里返回的就是正常的排序了。
-                    return this.items.sort(sortNumber);
-                },
-                sortStudents: function () {
-                    return sortByKey(this.students, 'age');
-                    // 下面这行会报错
-                    // return sortByKey(this.students, age);
+                object: {
+                    title: 'How to do lists in Vue',
+                    author: 'Jane Doe',
+                    publishedAt: '2016-04-10'
                 }
             }
         });
-        function sortNumber(a, b) {
-            return a - b;
-        };
-        function sortByKey(array, key) {
-            return array.sort(function (a, b) {
-                let x = a[key];
-                let y = b[key];
-                // return ((x < y) ? -1 : ((x > y) ? 1 : 0));
-                return x - y;
-            })
-        }
     </script>
 </body>
 

@@ -12,7 +12,11 @@
     <h1>2_用计算属性反转数组</h1>
     <hr>
     <div id="app">
-        {{reverseNews}}
+        {{newsList}}
+        <hr>
+        <!-- {{reverseNews}} -->
+        <hr>
+        {{reversedMessage()}}
     </div>
 
     <script type="text/javascript">
@@ -26,11 +30,16 @@
                     { title: '起底“最短命副市长”：不到40天落马，全家被查', date: '2017/3/23' },
                 ]
             },
-            computed: {
-                reverseNews: function () {
-                    return this.newsList.reverse();
+            methods: {
+                reversedMessage: function () {
+                    return this.newsList.slice().reverse();
                 }
-            }
+            },
+            // computed: {
+            //     reverseNews: function () {
+            //         return this.newsList.reverse();
+            //     }
+            // }
         })
     </script>
 

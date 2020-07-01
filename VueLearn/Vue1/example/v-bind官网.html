@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind官网</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-bind官网</h1>
+    <hr>
+    <div id="app">
+        <div class="button-group">
+            <button v-for="(tab, index) in tabs" v-bind:key="index" v-bind:class="{active: currentTab === tab}"
+                v-on:click="currentTab = tab">
+                {{tab}}
+            </button>
+        </div>
+        <!-- 这里绑定 按钮下面的显示 -->
+        <component v-bind:is="currentTabComponent"></component>
+    </div>
+    <script>
+        Vue.component("tab1", {
+            "template": "<p>这里是标签页1</p>"
+        });
+        Vue.component("tab2", {
+            "template": "<p>这里是标签页2</p>"
+        });
+        Vue.component("tab3", {
+            "template": "<p>这里是标签页3</p>"
+        });
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                currentTab: "tab1",
+                tabs: ["tab1", "tab2", "tab3"]
+            },
+            computed: {
+                currentTabComponent() {
+                    return this.currentTab;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

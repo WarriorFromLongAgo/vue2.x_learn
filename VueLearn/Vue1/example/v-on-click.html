@@ -11,23 +11,54 @@
 <body>
     <h1>helloh1h1h1h1h1h1h1hh1</h1>
     <hr>
-    <div id="app-5">
-        <p>{{ message }}</p>
-        <button v-on:click="reverseMessage">反转消息</button>
+    <div id="example-1">
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+    </div>
+    <hr>
+    <div id="example-2">
+        <!-- `greet` 是在下面定义的方法名 -->
+        <button v-on:click="greet">Greet</button>
+    </div>
+    <hr>
+    <div id="example-3">
+        <button v-on:click="say('hi')">Say hi</button>
+        <button v-on:click="say('what')">Say what</button>
     </div>
 
     <script type="text/javascript">
-        var app5 = new Vue({
-            el: '#app-5',
+        var example1 = new Vue({
+            el: '#example-1',
             data: {
-                message: 'Hello Vue.js!'
+                counter: 0
+            }
+        })
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js'
             },
+            // 在 `methods` 对象中定义方法
             methods: {
-                reverseMessage: function () {
-                    this.message = this.message.split('').reverse().join('')
+                greet: function (event) {
+                    // `this` 在方法里指向当前 Vue 实例
+                    alert('Hello ' + this.name + '!')
+                    // `event` 是原生 DOM 事件
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+        new Vue({
+            el: '#example-3',
+            methods: {
+                say: function (message) {
+                    alert(message)
                 }
             }
         })
     </script>
 </body>
+
 </html>
