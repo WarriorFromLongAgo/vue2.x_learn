@@ -4,36 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>computed</title>
+    <title>delimiters</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 
 <body>
-    <h1>1_格式化输出结果</h1>
+    <h1>delimiters Option</h1>
     <hr>
     <div id="app">
-        {{newPrice}}
+        <!-- 无数据 -->
+        {{message}}---
         <hr>
-        {{now}}
+        <!-- 有数据，修改了插入值的方式 -->
+        ${message}1111
     </div>
 
     <script type="text/javascript">
         var app = new Vue({
             el: '#app',
             data: {
-                price: 100
+                message: 'hello Vue!'
             },
-            computed: {
-                newPrice: function () {
-                    return this.price = '￥' + this.price + '元';
-                },
-                now: function () {
-                    return Date.now()
-                }
-            }
+            delimiters: ['${', '}']
         })
     </script>
-
 </body>
 
 </html>

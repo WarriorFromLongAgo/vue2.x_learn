@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>methods Option</h1>
+    <hr>
+    <div id="demo">{{ fullName }}</div>
+
+    <script type="text/javascript">
+        // var vm = new Vue({
+        //     el: '#demo',
+        //     data: {
+        //         firstName: 'Foo',
+        //         lastName: 'Bar',
+        //         fullName: 'Foo Bar'
+        //     },
+        //     watch: {
+        //         firstName: function (val) {
+        //             this.fullName = val + ' ' + this.lastName
+        //         },
+        //         lastName: function (val) {
+        //             this.fullName = this.firstName + ' ' + val
+        //         }
+        //     }
+        // })
+
+        // var vm = new Vue({
+        //     el: '#demo',
+        //     data: {
+        //         firstName: 'Foo',
+        //         lastName: 'Bar'
+        //     },
+        //     computed: {
+        //         fullName: function () {
+        //             return this.firstName + ' ' + this.lastName
+        //         }
+        //     }
+        // })
+
+        var vm = new Vue({
+            el: '#demo',
+            data: {
+                firstName: 'Foo',
+                lastName: 'Bar'
+            },
+            computed: {
+                fullName: {
+                    get: function () {
+                        return this.firstName + '' + this.lastName;
+                    },
+                    set: function (newValue) {
+                        let nameArr = newValue.split(' ')
+                        this.firstName = nameArr[0];
+                        this.lastName = nameArr[nameArr.length - 1]
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

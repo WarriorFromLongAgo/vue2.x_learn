@@ -4,39 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mixins</title>
+    <title>extends</title>
     <script type="text/javascript" src="../assets/js/vue.js"></script>
 </head>
 
 <body>
-    <h1>mixins Option</h1>
+    <h1>extends Option</h1>
     <hr>
     <div id="app">
-        <p>num:{{ num }}</p>
-        <P><button @click="add">增加数量</button></P>
+        {{message}}
+        <p><button @click="add">add</button></p>
     </div>
 
     <script type="text/javascript">
-        //额外临时加入时，用于显示日志
-        var addLog = {
+        var bbb = {
             created: function () {
-                console.log('数据创建完成' + this.num + ".");
-            },
-            updated: function () {
-                console.log("数据放生变化,变化成" + this.num + ".");
-            }
-        }
-        var app = new Vue({
-            el: '#app',
-            data: {
-                num: 1
+                console.log("我是被扩展出来的");
             },
             methods: {
                 add: function () {
-                    this.num++;
+                    console.log('我是被扩展出来的方法！');
+                }
+            }
+        };
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello Vue!'
+            },
+            methods: {
+                // 如果没有这个方法，就会是调用扩展里面的方法
+                add: function () {
+                    console.log('我是原生方法');
                 }
             },
-            mixins: [addLog]//混入
+            extends: bbb
         })
     </script>
 </body>
