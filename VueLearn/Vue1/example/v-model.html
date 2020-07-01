@@ -18,7 +18,9 @@
             <!-- <h1 v-model='message'></h1> -->
         </p>
         <p>文本框：<input type="text" v-model='message' placeholder="placeholder"></p>
+        <!-- 人输入完成后刷新 -->
         <p>v-model.lazy：<input type="text" v-model.lazy='message'></p>
+        <!-- 将用户的输入转成number类型 -->
         <p>v-model.number：<input type="text" v-model.number='message'></p>
         <!-- 删除前后的空格 -->
         <p>v-model.trim：<input type="text" v-model.trim='message'></p>
@@ -46,6 +48,29 @@
             <label for="two">女</label>
         </p>
         <p>{{sex}}</p>
+        <hr>
+        <select v-model="province">
+            <option disabled value="">请选择</option>
+            <option>深圳市</option>
+            <option>武汉市</option>
+            <option>佛山市</option>
+        </select>
+        <span>Selected: {{ province }}</span>
+        <hr>
+        <select v-model="selected" multiple style="width: 100px;">
+            <option disabled value="">请选择</option>
+            <option>深圳市</option>
+            <option>武汉市</option>
+            <option>佛山市</option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+        <hr>
+        <select v-model="citydefault">
+            <option v-for="city in cityArr" v-bind:value="city.value">
+                {{ city.text }}
+            </option>
+        </select>
+        <span>Selected: {{ citydefault }}</span>
     </div>
 
     <script type="text/javascript">
@@ -55,7 +80,15 @@
                 message: 'ajsdh',
                 isTrue: true,
                 web_name: [],
-                sex: '男'
+                sex: '男',
+                province: '',
+                selected: [],
+                citydefault: 'city1',
+                cityArr: [
+                    { text: 'One', value: 'city1' },
+                    { text: 'two', value: 'city2' },
+                    { text: 'three', value: 'city3' }
+                ]
             }
         })
     </script>
