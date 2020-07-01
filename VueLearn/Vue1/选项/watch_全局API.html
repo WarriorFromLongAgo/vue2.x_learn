@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch_全局API</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>watch_全局API Option</h1>
+    <hr>
+    <div id="app">
+        <input type="text" v-model="cityName" />
+    </div>
+
+    <script type="text/javascript">
+        Vue.mixin({
+            updated: function () {
+                console.log('我是全局被混入的');
+            }
+        })
+        var app = new Vue({
+            el: '#app',
+            data: {
+                cityName: 'shanghai'
+            },
+            watch: {
+                cityName(newName, oldName) {
+                    console.log('newName = ' + newName);
+                    console.log('oldName = ' + oldName);
+                }
+            },
+            mixins: [mixin]
+        })
+    </script>
+</body>
+
+</html>
