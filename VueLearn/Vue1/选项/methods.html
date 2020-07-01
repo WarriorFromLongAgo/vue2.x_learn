@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>methods</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>methods Option</h1>
+    <hr>
+    <div id="app">
+        {{ a }}
+        {{ b }}
+        <p><button @click="add">add</button></p>
+        <p><button @click="add2(1)">add</button></p>
+    </div>
+
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                a: 1,
+                b: 100
+            },
+            methods: {
+                add: function () {
+                    this.a++
+                },
+                add2: function (num) {
+                    if (num != '') {
+                        this.b += num;
+                    } else {
+                        this.b++
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

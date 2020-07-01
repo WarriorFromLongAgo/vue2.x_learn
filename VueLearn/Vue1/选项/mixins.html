@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mixins</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>mixins Option</h1>
+    <hr>
+    <div id="app">
+        <p>num:{{ num }}</p>
+        <P><button @click="add">增加数量</button></P>
+    </div>
+
+    <script type="text/javascript">
+        //额外临时加入时，用于显示日志
+        var addLog = {
+            updated: function () {
+                console.log("数据放生变化,变化成" + this.num + ".");
+            }
+        }
+        var app = new Vue({
+            el: '#app',
+            data: {
+                num: 1
+            },
+            methods: {
+                add: function () {
+                    this.num++;
+                }
+            },
+            mixins: [addLog]//混入
+        })
+    </script>
+</body>
+
+</html>
