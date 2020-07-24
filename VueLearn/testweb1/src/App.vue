@@ -1,7 +1,7 @@
 <template>
   <div id="app" style="background-color: rgba(235, 235, 235, 0.08)">
-    <img src="./assets/logo.png" />
-    <p>这是 app.vue 界面</p>
+    <!-- <img src="./assets/logo.png" /> -->
+    <!-- <p>这是 app.vue 界面</p> -->
     <router-view />
   </div>
 </template>
