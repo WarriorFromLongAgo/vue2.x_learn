@@ -2,8 +2,10 @@
   <div>
     <router-view />
     <p>{{msg}}</p>
+    <el-button type="text" @click="open4">点击打开 bookShop</el-button>
+    <br>
     <p>test1111</p>
-    <el-button type="text" @click="open">点击打开 Message Box</el-button>
+    <el-button type="text" @click="open">点击打开 jump</el-button>
     <br>
     <el-popconfirm title="这是一段内容确定删除吗？" @onConfirm="open2">
         <!-- 点击就执行 open3 -->
@@ -57,6 +59,27 @@ export default {
         // this.$router.push({ path: '/home' })
         this.$router.push({ path: '/home' })
       }, 1000)
+    },
+    open4 () {
+      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '删除成功!'
+        },
+        setTimeout(() => {
+          this.$router.replace({ path: '/bookShop' })
+        }, 1000)
+        )
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
     }
   }
 }

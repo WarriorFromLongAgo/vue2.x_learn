@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Test from '@/components/Test'
 import Jump from '@/components/Jump'
 import Home from '@/components/Home'
+import bookShop from '@/components/bookShop'
 
 Vue.use(Router)
 
@@ -71,6 +72,11 @@ export default new Router({
           }
         }
       ]
+    }, {
+      path: '/bookShop',
+      name: '书籍列表',
+      component: bookShop,
+      hidden: true
     }
 
   ]

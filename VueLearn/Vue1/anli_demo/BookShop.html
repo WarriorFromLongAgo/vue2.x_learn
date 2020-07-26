@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShop</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="bookArr.length > 0">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>书籍名称</th>
+                        <th>出版日期</th>
+                        <th>价格</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(book, index) in bookArr">
+                        <!-- <tr v-for="book in bookArr"> -->
+                        <!-- <td>{{index}}</td> -->
+                        <td>1</td>
+                        <td>{{book.name}}</td>
+                        <td>{{book.date}}</td>
+                        <td>{{showPrice(book.price)}}</td>
+                        <td>{{book.price | showPrice}}</td>
+                        <td>
+                            <button @click="decrement(index)" v-bind:disabled="book.count <= 0">-</button>
+                            {{book.count}}
+                            <button @click="increment(index)">+</button>
+                        </td>
+                        <td>
+                            <button @click="deleteRow(index)">移除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>总价格：{{sumPrice}}</h2>
+            <h2>总价格：{{showPrice(sumPrice)}}</h2>
+            <h2>总价格：{{sumPrice | showPrice}}</h2>
+        </div>
+        <h2 v-else>购物车为空</h2>
+    </div>
+
+    <script type="text/javascript">
+        const app = new Vue({
+            el: '#app',
+            data: {
+                bookArr: [
+                    {
+                        id: 1,
+                        name: '《算法导论》',
+                        date: '2006-9',
+                        price: 49.6,
+                        count: 10
+                    },
+                    {
+                        id: 1,
+                        name: '《Linux》',
+                        date: '2006-9',
+                        price: 59.6,
+                        count: 10
+                    },
+                    {
+                        id: 1,
+                        name: '《Java》',
+                        date: '2006-9',
+                        price: 29.6,
+                        count: 10
+                    },
+                    {
+                        id: 1,
+                        name: '《编程之美》',
+                        date: '2006-9',
+                        price: 39.6,
+                        count: 10
+                    }
+                ]
+            },
+            methods: {
+                showPrice(price) {
+                    return '￥' + price.toFixed(2)
+                },
+                increment(index) {
+                    console.log(index)
+                    let count = this.bookArr[index].count++;
+                },
+                decrement(index) {
+                    let count = this.bookArr[index].count--;
+                    console.log(index + '====' + count)
+                    if (count <= 0) {
+                        this.bookArr[index].count = 0;
+                    }
+                },
+                deleteRow(index) {
+                    this.bookArr.splice(index, 1)
+                }
+            },
+            filters: {
+                showPrice(price) {
+                    return '￥' + price.toFixed(2)
+                }
+            },
+            computed: {
+                sumPrice() {
+                    let sumPrice = 0;
+                    for (let i = 0; i < this.bookArr.length; i++) {
+                        sumPrice += this.bookArr[i].count * this.bookArr[i].price;
+                    }
+                    return sumPrice;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
