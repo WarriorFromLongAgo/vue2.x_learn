@@ -10,15 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/': {
-        target: 'http://localhost:8090',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/': ''
-        }
-      }
-    },
+    // proxyTable: {
+    //   '/': {
+    //     target: 'http://localhost:8090',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/': ''
+    //     }
+    //   }
+    // },
 
     // 前端项目的端口 与 IP
     // Various Dev Server settings

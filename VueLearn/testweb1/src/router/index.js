@@ -5,6 +5,7 @@ import Test from '@/components/Test'
 import Jump from '@/components/Jump'
 import Home from '@/components/Home'
 import bookShop from '@/components/bookShop'
+import Http from '@/components/Http'
 
 Vue.use(Router)
 
@@ -15,6 +16,11 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: '你好Http',
+      hidden: true,
+      component: Http
+    }, {
       path: '/',
       name: '你好',
       hidden: true,
