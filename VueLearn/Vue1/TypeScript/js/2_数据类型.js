@@ -24,6 +24,8 @@ var succ = Flag.success;
 console.log(succ);
 var err = Flag.error;
 console.error(err);
+console.log('enum = ' + Flag[1]);
+console.log('enum = ' + Flag[2]);
 // 有默认值 的枚举
 // 如果有其中一个被赋值，那么后续的都会跟着他变大
 var Car;
@@ -42,6 +44,8 @@ var unum;
 // console.log(unum);
 var unum2;
 console.log(unum2);
+// null
+var _null = null;
 // 联合
 var unum3;
 // void 无返回值
@@ -72,3 +76,74 @@ var str2 = '123';
 console.log(str2);
 str2 = '456';
 console.log(str2);
+// ts 中的 或
+var some_var = 123;
+some_var = true;
+some_var = '123';
+some_var = undefined;
+var obj = {
+    name: 'asd',
+    age: 20,
+    sex: '男'
+};
+var person2 = {};
+var IA2 = {
+    id: 'id',
+    name: 'asd',
+    age: 20,
+    sex: '男'
+};
+var Ib4Obj = {
+    id: 'id',
+    name: 'name',
+    age: 12,
+    sex: '男'
+};
+// ts 中的 与
+var person = {
+    id: 'id',
+    name: 'name',
+    age: 12,
+    sex: '男'
+};
+var person3 = {
+    name: 'sadd'
+};
+var person33 = {
+    id: 'sadd'
+};
+var Person4Impl = /** @class */ (function () {
+    function Person4Impl(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person4Impl.prototype.getName = function () {
+        return this.name;
+    };
+    Person4Impl.prototype.getAge = function () {
+        return this.age;
+    };
+    return Person4Impl;
+}());
+// 类型断言
+function getLength(str) {
+    if (str.length) {
+        // 两种类型的断言
+        // return (<string>str).length;
+        return str.length;
+    }
+    else {
+        return str.toString().length;
+    }
+}
+// 非空断言
+function arrsetNull(arg) {
+    return arg.length;
+    // 相当于 return arg && arg.length
+}
+// 泛型
+function t(arg) {
+}
+t(123);
+// 会报错
+// t<number>('123');

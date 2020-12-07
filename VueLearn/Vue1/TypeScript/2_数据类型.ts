@@ -25,8 +25,8 @@ console.log(succ);
 let err: Flag = Flag.error
 console.error(err);
 
-console.log(Flag[0]);
-console.log(Flag[1]);
+console.log('enum = ' + Flag[1]);
+console.log('enum = ' + Flag[2]);
 
 
 // 有默认值 的枚举
