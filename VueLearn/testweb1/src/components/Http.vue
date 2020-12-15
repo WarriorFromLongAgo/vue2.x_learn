@@ -5,6 +5,8 @@
     <br />
     <el-button type="text" @click="get2">点击打开 get2</el-button>
     <br />
+    <el-button type="text" @click="get3">点击打开 get3</el-button>
+    <br />
     <el-button type="text" @click="post1">点击打开 post1</el-button>
     <br />
     <el-button type="text" @click="post2">点击打开 post2</el-button>
@@ -131,6 +133,39 @@ export default {
         url: baseUrl + prefixUrl,
         params: {
           get2: "get2 xuegao 2020年9月15日17:32:42",
+        },
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          // 'Content-Type': 'application/x-www-form-urlencoded'
+        },
+      }).then((resp) => {
+        if (resp === null) {
+          console.log("找不到服务器⊙﹏⊙∥!");
+        }
+        if (resp.status === 200) {
+          // 成功
+          let json = resp.data;
+          if (json.status === "success") {
+            // _this.$router.replace({path: '/test'})
+            console.log("get2 返回是200 也是 success");
+          } else {
+            console.log("get2 返回是200 不是 success");
+          }
+        } else {
+          console.log("get2 返回不是200");
+        }
+      });
+    },
+    get3() {
+      let baseUrl = "http://127.0.0.1:11112/";
+      let prefixUrl = "index/get3";
+      Axios({
+        methods: "get",
+        url: baseUrl + prefixUrl,
+        params: {
+          id: "1",
+          name: "get3",
+          username: "get3username",
         },
         headers: {
           "Content-Type": "application/json;charset=UTF-8",
